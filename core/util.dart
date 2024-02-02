@@ -1,0 +1,91 @@
+/*---------------------- 
+ ・エラーハンドリング
+----------------------*/
+
+// パッケージのインポート
+import 'package:firebase_auth/firebase_auth.dart';
+
+// FirebaseAuthResultStatus: Firebase認証の結果ステータスを表す列挙型
+enum FirebaseAuthResultStatus {
+  successful,
+  emailAlreadyExists,
+  wrongPassword,
+  invalidEmail,
+  userNotFound,
+  userDisabled,
+  operationNotAllowed,
+  tooManyRequests,
+  undefined,
+}
+
+// handleException: FirebaseAuthExceptionをFirebaseAuthResultStatusに変換する関数
+String handleException(FirebaseAuthException e) {
+  FirebaseAuthResultStatus result;
+  switch (e.code) {
+    case 'invalid-email':
+      result = FirebaseAuthResultStatus.invalidEmail;
+      break;
+    case 'wrong-password':
+      result = FirebaseAuthResultStatus.wrongPassword;
+      break;
+    case 'user-disabled':
+      result = FirebaseAuthResultStatus.userDisabled;
+      break;
+    case 'user-not-found':
+      result = FirebaseAuthResultStatus.userNotFound;
+      break;
+    case 'operation-not-allowed':
+      result = FirebaseAuthResultStatus.operationNotAllowed;
+      break;
+    case 'too-many-requests':
+      result = FirebaseAuthResultStatus.tooManyRequests;
+      break;
+    case 'email-already-exists':
+      result = FirebaseAuthResultStatus.emailAlreadyExists;
+      break;
+    default:
+      result = FirebaseAuthResultStatus.undefined;
+  }
+  return exceptionMessage(result);
+}
+
+// exceptionMessage: FirebaseAuthResultStatusに対応するエラーメッセージを返す関数
+String exceptionMessage(FirebaseAuthResultStatus result) {
+  String? message = '';
+  switch (result) {
+    case FirebaseAuthResultStatus.successful:
+      message = 'ログインに成功しました。';
+      break;
+    case FirebaseAuthResultStatus.emailAlreadyExists:
+      message = '指定されたメールアドレスは既に使用されています。';
+      break;
+    case FirebaseAuthResultStatus.wrongPassword:
+      message = 'パスワードが違います。';
+      break;
+    case FirebaseAuthResultStatus.invalidEmail:
+      message = 'メールアドレスが不正です。';
+      break;
+    case FirebaseAuthResultStatus.userNotFound:
+      message = '指定されたユーザーは存在しません。';
+      break;
+    case FirebaseAuthResultStatus.userDisabled:
+      message = '指定されたユーザーは無効です。';
+      break;
+    case FirebaseAuthResultStatus.operationNotAllowed:
+      message = '指定されたユーザーはこの操作を許可していません。';
+      break;
+    case FirebaseAuthResultStatus.tooManyRequests:
+      message = '指定されたユーザーはこの操作を許可していません。';
+      break;
+    case FirebaseAuthResultStatus.undefined:
+      message = '不明なエラーが発生しました。';
+      break;
+  }
+  return message;
+}
+
+/*---------------------- 
+ ・デフォルト画像
+----------------------*/
+String defaultImgUrl =
+    'https://firebasestorage.googleapis.com/v0/b/portfolioapp-57f0d.appspot.com/o/users%2Fhuman.png?alt=media&token=5709f138-b672-4284-9248-07f539e4d500';
