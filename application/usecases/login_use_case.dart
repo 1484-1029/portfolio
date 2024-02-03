@@ -3,12 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/core/util.dart';
 import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
 import 'package:portfolioapp/src/presentation/dialogs/error_dialog.dart';
 import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
 import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 import 'package:portfolioapp/src/presentation/pages/login_page.dart';
+import 'package:portfolioapp/src/core/error_handling_util.dart';
 
 /*---------------------- 
  ・ログイン機能

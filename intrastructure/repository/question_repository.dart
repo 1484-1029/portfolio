@@ -1,16 +1,14 @@
 // インポートパッケージ
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
-
-// インポートファイル
+import 'package:portfolioapp/src/presentation/pages/sort/sort_dialog_page.dart';
 
 // データベース設定
 final questionsdb = FirebaseFirestore.instance.collection('questions');
@@ -22,8 +20,6 @@ String errorM = '';
 
 // 検索文字格納用変数
 String searchSentence = '';
-// 検索用変数
-final TextEditingController searchQuestion = TextEditingController();
 
 //  時間表示
 String retrunCreateDateTime(String date) {
@@ -48,17 +44,6 @@ String retrunCreateDateTime(String date) {
 
   return formattedDate;
 }
-
-// 条件絞り用変数
-List<Question> sortQuestions = [];
-
-TextEditingController sortQuestionKeyword = TextEditingController();
-String sortGenreKey = 'unSelected';
-String sortGenreName = '選択してください';
-String sortQuestionerNameKey = 'select';
-String sortQuestionerName = '選択してください';
-String sortAnswerNameKey = 'select';
-String sortAnswerName = '選択してください';
 
 /*---------------------- 
  ・データ参照処理
@@ -171,9 +156,8 @@ final questionsStreamFromUserProvider = StreamProvider.autoDispose(
           );
     } catch (e) {
       errorM = e.toString();
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
-    throw Exception('This is an example exception.');
   },
 );
 
@@ -213,9 +197,8 @@ final questionsStreamFromUserClearProvider = StreamProvider.autoDispose(
           );
     } catch (e) {
       errorM = e.toString();
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
-    throw Exception('This is an example exception.');
   },
 );
 
@@ -254,9 +237,8 @@ final questionsStreamToUserProvider = StreamProvider.autoDispose(
                 .toList(),
           );
     } catch (e) {
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
-    throw Exception('This is an example exception.');
   },
 );
 
@@ -293,9 +275,8 @@ final questionsStreamCheckProvider = StreamProvider.autoDispose(
                 .toList(),
           );
     } catch (e) {
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
-    throw Exception('This is an example exception.');
   },
 );
 
@@ -307,10 +288,10 @@ void addQuestion() {
     FirebaseFirestore.instance.collection('questions').add(
       {
         'sQuestionerId': sUserId,
-        'sGenre': selectGenreKey,
+        'sGenre': sSelectGenreKey,
         'sQuestionerName': '${sEmployeeNumber}_$sUserNameSei$sUserNameMei',
-        'sAnswerId': selectedUser,
-        'sAnswerName': selectedUserName,
+        'sAnswerId': sSelectedUserNameKey,
+        'sAnswerName': sSelectedUserName,
         'sQuestionSentence': controllerText.text,
         'sOpenCloesFlg': bOpenCheck == true ? '1' : '0',
         'sAnswerFlg': '0',
@@ -321,7 +302,7 @@ void addQuestion() {
       },
     );
   } catch (e) {
-    print(e);
+    throw Exception('Error fetching data: $e');
   }
 }
 
@@ -345,27 +326,25 @@ Future<void> setSortSelectData(
     // 検索結果取得用Listの初期化
     sortQuestions = [];
 
-    // 一時格納List
+    // 一時格納List作成
     List<Question> tmpSortQuestions = [];
 
+    // OPEN希望の質問を取得
     Query query = questionsdb
         .orderBy('dtCreateDate')
         .where('sOpenCloesFlg', isEqualTo: '1'); // OPEN希望
 
-    // if (sKeyword != '') {
-    //   query = query
-    //       .orderBy('sQuestionSentence', descending: true)
-    //       .startAt([sKeyword]).endAt(['$sKeyword\uf8ff']);
-    // }
-
+    // 質問者を指定している場合、条件追加
     if (sQuestionerId != 'select') {
       query = query.where('sQuestionerId', isEqualTo: sQuestionerId);
     }
 
+    // 回答者を指定している場合、条件追加
     if (sAnswerId != 'select') {
       query = query.where('sAnswerId', isEqualTo: sAnswerId);
     }
 
+    // ジャンルを指定している場合、条件追加
     if (sGenre != 'unSelected') {
       query = query.where('sGenre', isEqualTo: sGenre);
     }
@@ -376,7 +355,7 @@ Future<void> setSortSelectData(
     // ドキュメントのリストを取得
     List<QueryDocumentSnapshot> documents = querySnapshot.docs;
 
-    // リストに格納
+    // 一時格納リストに格納
     tmpSortQuestions = documents
         .map((doc) => Question(
               sQuestionId: doc.id,
@@ -399,14 +378,13 @@ Future<void> setSortSelectData(
             ))
         .toList();
 
-    // 抽出したレコードを繰り返し処理
+    // 検索されたキーワードが部分一致する場合はlistに格納
     for (Question question in tmpSortQuestions) {
       if (sKeyword == '' || question.sQuestionSentence.contains(sKeyword)) {
         sortQuestions.add(question);
       }
     }
   } catch (e) {
-    print('Error fetching data: $e');
-    throw Exception('This is an example exception.');
+    throw Exception('Error fetching data: $e');
   }
 }

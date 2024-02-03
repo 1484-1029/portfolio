@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // インポートファイル
 import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
 import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
 import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 
@@ -62,7 +63,7 @@ Widget employeeRegistDialog(BuildContext context) {
           Container(
             margin: const EdgeInsets.only(bottom: 15),
             child: Text(
-              selectOffice,
+              sSelectOffice,
             ),
           ),
           const Text(

@@ -12,13 +12,14 @@ final answerProvider =
     ChangeNotifierProvider.autoDispose((ref) => AnswerProvider());
 
 class AnswerProvider extends ChangeNotifier {
-  void setAnswerContext() {
-    answerContext = addAnswerText.text;
+  void setAnswerContext(answer) {
+    answerContext = answer;
     notifyListeners();
   }
 
-  void addAnswers(id, sQuestionerId, sAnswerId) {
-    setAddAnswer(id, sQuestionerId, sAnswerId);
+  // 回答登録
+  void addAnswers(id, sQuestionerId, sAnswerId, sAnswerContext) async {
+    addAnswer(id, sQuestionerId, sAnswerId, sAnswerContext);
     notifyListeners();
   }
 }

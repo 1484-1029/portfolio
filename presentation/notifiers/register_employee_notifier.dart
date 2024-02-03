@@ -4,15 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 
 final registerEmployeeNotifier =
     ChangeNotifierProvider.autoDispose((ref) => RegisterEmployeeNotifier());
 
 class RegisterEmployeeNotifier extends ChangeNotifier {
-  //
   void setOfficeValue(value) {
-    selectedKey = value;
+    sSelectOfficeKey = value;
     notifyListeners();
   }
 }
@@ -23,6 +22,6 @@ void setInitRegist() {
   registNumberController.clear();
   registNameSeiController.clear();
   registNameMeiContriller.clear();
-  selectedKey = '0';
-  selectOffice = '選択してください';
+  sSelectOfficeKey = '0';
+  sSelectOffice = '選択してください';
 }

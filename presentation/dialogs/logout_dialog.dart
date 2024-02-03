@@ -5,9 +5,14 @@ import 'package:flutter/material.dart';
 // インポートファイル
 import 'package:portfolioapp/main.dart';
 
-/*---------------------------------
- ログアウト用ダイアログ
----------------------------------*/
+/*-----------------------------------------------
+ タイトル：ログアウト用ダイアログ
+ ------------------------------------------------
+ 概要   ：ログアウトする
+ ------------------------------------------------
+ 呼出画面：drawermenu.dart(メニュー画面)
+ 遷移画面：login_page.dart(ログイン画面)
+------------------------------------------------*/
 Widget logoutDialog(BuildContext context) {
   return AlertDialog(
     alignment: Alignment.center,

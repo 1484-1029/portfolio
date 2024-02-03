@@ -6,9 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // インポートファイル
 import 'package:portfolioapp/src/presentation/components/register_input_check.dart';
 import 'package:portfolioapp/src/presentation/notifiers/register_employee_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
+import 'package:portfolioapp/src/core/pulldown_map_until.dart';
 
-// 変数定義
+// インプット情報格納変数
 final registEmailController = TextEditingController();
 final registPasswordController = TextEditingController();
 final registNumberController = TextEditingController();
@@ -89,7 +90,7 @@ class RegisterEmployeePage extends ConsumerWidget {
                       children: [
                         const Text('事業所'),
                         DropdownButton<String>(
-                          value: selectedKey,
+                          value: sSelectOfficeKey,
                           items: officese.keys.map((String key) {
                             return DropdownMenuItem<String>(
                               value: key,
@@ -172,7 +173,15 @@ class RegisterEmployeePage extends ConsumerWidget {
                     onPressed: () {
                       // registerUser(context);
                       // Navigator.of(context).pop();
-                      registerInputCheck(context);
+                      registerInputCheck(
+                        context,
+                        registEmailController.text,
+                        registPasswordController.text,
+                        sSelectOfficeKey,
+                        registNumberController.text,
+                        registNameSeiController.text,
+                        registNameMeiContriller.text,
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.cyan, // ボタンの背景色を設定

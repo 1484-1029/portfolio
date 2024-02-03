@@ -36,7 +36,7 @@ BottomNavigationBarItem buildNavigationBarItem(
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(8),
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minWidth: 8,
                 minHeight: 8,
               ),

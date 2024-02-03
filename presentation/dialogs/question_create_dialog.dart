@@ -4,10 +4,18 @@ import 'package:flutter/material.dart';
 // インポートファイル
 import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
 import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 
-Widget questionCreateDialog(
-    BuildContext context, CreateQuestionProvider createQuestionsProviders) {
+/*-----------------------------------------------
+ タイトル：作成質問確認ダイアログ
+ ------------------------------------------------
+ 概要   ：入力した質問内容を表示する
+ ------------------------------------------------
+ 呼出画面：create_question_page.dart(質問作成画面)
+ 遷移画面：bottom_page.dart(ホーム画面)
+------------------------------------------------*/
+Widget questionCreateDialog(BuildContext context) {
   return AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20),
@@ -52,7 +60,7 @@ Widget questionCreateDialog(
           Container(
             margin: const EdgeInsets.only(bottom: 15),
             child: Text(
-              selectGenreName,
+              sSelectGenreName,
             ),
           ),
           const Text(
@@ -65,7 +73,7 @@ Widget questionCreateDialog(
           Container(
             margin: const EdgeInsets.only(bottom: 15),
             child: Text(
-              selectOffice,
+              sSelectOffice,
             ),
           ),
           const Text(
@@ -78,7 +86,7 @@ Widget questionCreateDialog(
           Container(
             margin: const EdgeInsets.only(bottom: 15),
             child: Text(
-              selectedUserName,
+              sSelectedUserName,
             ),
           ),
           const Text(

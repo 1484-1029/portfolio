@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolioapp/src/core/util.dart';
+import 'package:portfolioapp/src/core/image_util.dart';
 
 // ユーザー画像置換
 String userImageURL(String? imgURL) {

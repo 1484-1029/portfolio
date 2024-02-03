@@ -7,6 +7,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolioapp/src/presentation/components/create_input_check.dart';
 import 'package:portfolioapp/src/presentation/dialogs/question_cancel_dialog.dart';
 import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
+import 'package:portfolioapp/src/core/pulldown_map_until.dart';
+
+// 質問情報格納変数
+final TextEditingController controllerText = TextEditingController();
+bool bOpenCheck = false;
+String sSelectOfficeKey = '0';
+String sSelectOffice = '選択してください';
+String sSelectedUserNameKey = 'select';
+String sSelectedUserName = '選択してください';
+String sSelectGenreKey = 'unSelected';
+String sSelectGenreName = '選択してください';
+Map<String, String> userList = {'select': '選択してください'};
 
 class CreateQuestionPage extends ConsumerWidget {
   const CreateQuestionPage({super.key});
@@ -63,7 +75,7 @@ class CreateQuestionPage extends ConsumerWidget {
                     ListTile(
                       title: const Text('ジャンル'),
                       trailing: DropdownButton<String>(
-                        value: selectGenreKey,
+                        value: sSelectGenreKey,
                         items: questionGenre.keys.map((String key) {
                           return DropdownMenuItem<String>(
                             value: key,
@@ -79,7 +91,7 @@ class CreateQuestionPage extends ConsumerWidget {
                     ListTile(
                       title: const Text('事業所'),
                       trailing: DropdownButton<String>(
-                        value: selectedKey,
+                        value: sSelectOfficeKey,
                         items: officese.keys.map((String key) {
                           return DropdownMenuItem<String>(
                             value: key,
@@ -97,7 +109,7 @@ class CreateQuestionPage extends ConsumerWidget {
                     ListTile(
                       title: const Text('宛先'),
                       trailing: DropdownButton<String>(
-                        value: selectedUser,
+                        value: sSelectedUserNameKey,
                         items: userList.keys.map((String key) {
                           return DropdownMenuItem<String>(
                             value: key,
@@ -127,7 +139,7 @@ class CreateQuestionPage extends ConsumerWidget {
                         backgroundColor: Colors.cyan,
                       ),
                       onPressed: () {
-                        createInputCheck(context, createQuestionsProviders);
+                        createInputCheck(context);
                       },
                       child: Container(
                         alignment: Alignment.center,

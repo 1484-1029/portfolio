@@ -5,9 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // インポートファイル
 import 'package:portfolioapp/src/intrastructure/repository/answer_repository.dart';
 import 'package:portfolioapp/src/presentation/components/answer_list.dart';
+import 'package:portfolioapp/src/presentation/components/image_format.dart';
 import 'package:portfolioapp/src/presentation/notifiers/answer_notifier.dart';
 import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
 import 'package:portfolioapp/src/presentation/notifiers/detail_question_notifier.dart';
+import 'package:portfolioapp/src/presentation/widgets/detail_question_widget.dart';
+
+// アンサー格納変数
+TextEditingController addAnswerText = TextEditingController();
 
 class DetailQuestionPage extends ConsumerWidget {
   const DetailQuestionPage({
@@ -41,6 +46,153 @@ class DetailQuestionPage extends ConsumerWidget {
     final myModelsSnapshot = ref.watch(answersStreamProvider);
     final answersProvider = ref.watch(answerProvider);
     final detailsProvider = ref.watch(detailProviders);
+
+    if (selectItem == 2) {
+      return DefaultTabController(
+        initialIndex: 0, // 最初に表示するタブ
+        length: 2, // タブの数
+        child: WillPopScope(
+          onWillPop: () async {
+            return true;
+          },
+          child: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.cyan,
+                title: const Text('詳細ページ'),
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(Icons.clear),
+                ),
+              ),
+              body: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.topCenter,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              alignment: Alignment.topCenter,
+                              margin: const EdgeInsets.all(10),
+                              width: 600,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                          '$sQuestionerNameさん ⇨ $sAnswerNameさんへ質問'),
+                                    ),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topLeft,
+                                      child: Row(
+                                        children: [
+                                          userListImageUI(sQuestionerImage),
+                                          Flexible(
+                                            child: Text(
+                                              sQuestionSentence,
+                                              softWrap: true,
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 10,
+                                              style:
+                                                  const TextStyle(fontSize: 20),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    questionStatusButton(
+                                        detailsProvider, sQuestionId),
+                                    const Divider(
+                                      color: Colors.grey, // 線の色を指定
+                                      thickness: 1.0, // 線の太さを指定
+                                      height: 1.0, // 線の高さを指定
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      height: 500,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              alignment: Alignment.topRight,
+                                              child: myModelsSnapshot.when(
+                                                data: (myModels) {
+                                                  return answerListView(
+                                                    myModels,
+                                                    sQuestionerId,
+                                                    sQuestionerImage,
+                                                    sAnswerImage,
+                                                    sQuestionerName,
+                                                    sAnswerName,
+                                                  );
+                                                },
+                                                loading: () => const Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    strokeWidth: 2.0,
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(Colors.red),
+                                                  ),
+                                                ),
+                                                error: (error, stackTrace) =>
+                                                    SelectableText(
+                                                        'Error: $error'),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  answerChatTextField(
+                    answersProvider,
+                    addAnswerText,
+                    sQuestionId,
+                    sQuestionerId,
+                    sAnswerId,
+                  )
+                ],
+              ),
+              resizeToAvoidBottomInset: true,
+            ),
+          ),
+        ),
+      );
+    }
 
     return DefaultTabController(
       initialIndex: 0, // 最初に表示するタブ
@@ -89,19 +241,7 @@ class DetailQuestionPage extends ConsumerWidget {
                                     alignment: Alignment.topLeft,
                                     child: Row(
                                       children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(200),
-                                          child: Image.network(
-                                            sQuestionerImage,
-                                            width: 30,
-                                            height: 30,
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
+                                        userListImageUI(sQuestionerImage),
                                         Flexible(
                                           child: Text(
                                             sQuestionSentence,
@@ -118,50 +258,6 @@ class DetailQuestionPage extends ConsumerWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  (selectItem == 2)
-                                      ? Container(
-                                          alignment: Alignment.topLeft,
-                                          width: double.infinity,
-                                          margin: const EdgeInsets.all(10),
-                                          child: ElevatedButton.icon(
-                                            onPressed: () {
-                                              detailsProvider
-                                                  .setCloseFlg(sQuestionId);
-                                            },
-                                            icon: isclosed == true
-                                                ? const Icon(Icons.star)
-                                                : const Icon(Icons.star_border),
-                                            label: isclosed == true
-                                                ? const Text('解決済み')
-                                                : const Text('質問中'),
-                                            style: isclosed == true
-                                                ? ElevatedButton.styleFrom(
-                                                    foregroundColor:
-                                                        Colors.white,
-                                                    backgroundColor:
-                                                        Colors.green, // テキスト色
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10), // 角丸の半径
-                                                    ),
-                                                  )
-                                                : ElevatedButton.styleFrom(
-                                                    foregroundColor:
-                                                        Colors.white,
-                                                    backgroundColor:
-                                                        Colors.blue, // テキスト色
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10), // 角丸の半径
-                                                    ),
-                                                  ),
-                                          ),
-                                        )
-                                      : Container(),
                                   const Divider(
                                     color: Colors.grey, // 線の色を指定
                                     thickness: 1.0, // 線の太さを指定
@@ -220,31 +316,12 @@ class DetailQuestionPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(15),
-                  width: 500,
-                  child: TextFormField(
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    textAlignVertical: TextAlignVertical.center,
-                    controller: addAnswerText,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          if (addAnswerText.text != '') {
-                            answersProvider.setAnswerContext(); // 文字を変数に格納
-                            setMaxNumber(sQuestionId, sQuestionerId, sAnswerId);
-                            addAnswerText.clear();
-                          }
-                        },
-                        icon: const Icon(Icons.send),
-                      ),
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: const OutlineInputBorder(),
-                    ),
-                  ),
+                answerChatTextField(
+                  answersProvider,
+                  addAnswerText,
+                  sQuestionId,
+                  sQuestionerId,
+                  sAnswerId,
                 )
               ],
             ),

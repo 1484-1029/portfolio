@@ -29,7 +29,7 @@ class EditImageNotifier extends ChangeNotifier {
         imageFile = uint8list;
       }
     } catch (e) {
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
     notifyListeners();
   }
@@ -60,7 +60,7 @@ class EditImageNotifier extends ChangeNotifier {
 
       // ユーザーを登録する処理
     } catch (e) {
-      print(e);
+      throw Exception('Error fetching data: $e');
     }
     notifyListeners();
   }

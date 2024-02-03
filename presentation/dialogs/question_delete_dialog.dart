@@ -1,14 +1,19 @@
-/*---------------------------------
- 質問削除ダイアログ
----------------------------------*/
 // インポートパッケージ
 import 'package:flutter/material.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/intrastructure/repository/answer_repository.dart';
 import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 
+/*-----------------------------------------------
+ タイトル：質問削除ダイアログ
+ ------------------------------------------------
+ 概要   ：不要な質問を削除する場合、表示し、
+         消すかどうか判断する
+ ------------------------------------------------
+ 呼出画面：bottom_page.dart(ホーム画面 マイクエスチョン)
+ 遷移画面：-
+------------------------------------------------*/
 Widget questionDeleteDialog(BuildContext context, questionId) {
   return AlertDialog(
     alignment: Alignment.center,
@@ -25,13 +30,8 @@ Widget questionDeleteDialog(BuildContext context, questionId) {
                 onPressed: () {
                   deleteQuestion(questionId);
                   deleteAnswer(questionId);
-                  Navigator.of(context).push(
-                    PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const HomePage();
-                      },
-                    ),
-                  );
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
                 },
                 child: const Text(
                   'はい',

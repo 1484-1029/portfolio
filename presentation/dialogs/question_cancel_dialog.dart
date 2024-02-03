@@ -2,16 +2,21 @@
 import 'package:flutter/cupertino.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 
-/*---------------------------------
- 作成中質問破棄ダイアログ
----------------------------------*/
+/*-----------------------------------------------
+ タイトル：作成中質問破棄ダイアログ
+ ------------------------------------------------
+ 概要   ：質問を作成中に作成キャンセルした場合、
+         破棄するかどうか判断する
+ ------------------------------------------------
+ 呼出画面：create_question_page.dart(メニュー画面)
+ 遷移画面：bottom_page.dart(ホーム画面)
+------------------------------------------------*/
 setCansellButton(context) {
   if (controllerText.text != '' ||
-      selectedKey != '0' ||
-      selectedUser != 'select') {
+      sSelectOfficeKey != '0' ||
+      sSelectedUserNameKey != 'select') {
     return showCupertinoModalPopup<void>(
       context: context,
       builder: (BuildContext context) {
@@ -21,15 +26,10 @@ setCansellButton(context) {
               child: const Text('編集を破棄'),
               onPressed: () {
                 controllerText.clear();
-                selectedKey = '0';
-                selectedUser = 'select';
-                Navigator.of(context).push(
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const HomePage();
-                    },
-                  ),
-                );
+                sSelectOfficeKey = '0';
+                sSelectedUserNameKey = 'select';
+                Navigator.pop(context);
+                Navigator.pop(context);
               },
             )
           ],

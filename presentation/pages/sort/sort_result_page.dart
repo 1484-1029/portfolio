@@ -3,9 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
 import 'package:portfolioapp/src/presentation/components/question_List.dart';
+import 'package:portfolioapp/src/presentation/pages/sort/sort_dialog_page.dart';
 
+/*-----------------------------------------------
+ タイトル：検索結果ページ
+ ------------------------------------------------
+ 概要   ：検索したい質問を表示する画面。
+ ------------------------------------------------
+ 呼出画面：sort_dialog_page.dart(メニュー画面)
+ 遷移画面：bottom_page.dart(ホーム画面)(検索結果画面)
+------------------------------------------------*/
 class SortResultPage extends ConsumerWidget {
   const SortResultPage({super.key});
 

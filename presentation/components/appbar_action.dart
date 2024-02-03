@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 // インポートファイル
 import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 
+/*-----------------------------------------------
+ タイトル：appbarコンポーネント
+ ------------------------------------------------
+ 概要   ：appbarを定義する
+ ------------------------------------------------
+ 呼出画面：bottom_page.dart(ホーム画面)
+ 遷移画面：-
+------------------------------------------------*/
 Row notificationsAction(context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,

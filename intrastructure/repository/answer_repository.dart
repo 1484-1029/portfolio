@@ -3,7 +3,6 @@
 ----------------------*/
 // インポートパッケージ
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
@@ -19,10 +18,6 @@ import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 // データベース設定
 final answersdb = FirebaseFirestore.instance.collection('answers');
 // 変数定義
-int maxNumber = 0; // 回答回数の最大値格納用変数
-String sAnswerSentence = '';
-
-TextEditingController addAnswerText = TextEditingController();
 
 /*---------------------- 
  ・データ参照処理
@@ -57,10 +52,12 @@ final answersStreamProvider = StreamProvider.autoDispose(
 /*---------------------- 
  ・連続質問追加処理
 ----------------------*/
-void setMaxNumber(sQuestionId, sQuestionerId, inputAnswerId) async {
-  // 初期化
-  maxNumber = 0;
+Future<void> addAnswer(
+    sQuestionId, sQuestionerId, inputAnswerId, sAnswerContext) async {
+  // 最大値格納変数定義
+  int nMaxNumber = 0;
 
+  // 最大値データ格納
   final answerdb = await FirebaseFirestore.instance
       .collection('answers')
       .where('sQuestionId', isEqualTo: sQuestionId)
@@ -68,23 +65,32 @@ void setMaxNumber(sQuestionId, sQuestionerId, inputAnswerId) async {
       .limit(1)
       .get();
 
+  // 1件でも回答があれば、最大値を変数に格納
   if (answerdb.docs.isNotEmpty) {
     Map<String, dynamic> latestDataMap = answerdb.docs[0].data();
-    maxNumber = await latestDataMap['nRowNumber'];
+    nMaxNumber = await latestDataMap['nRowNumber'];
   }
 
-  setAddAnswer(sQuestionId, sQuestionerId, inputAnswerId);
+  // 回答テーブルに登録する
+  await setAddAnswer(
+      sQuestionId, sQuestionerId, inputAnswerId, nMaxNumber, sAnswerContext);
 }
 
 // 回答追加
-void setAddAnswer(sQuestionId, sQuestionerId, inputAnswerId) async {
-  maxNumber += 1;
+Future<void> setAddAnswer(
+  sQuestionId,
+  sQuestionerId,
+  inputAnswerId,
+  nMaxNumber,
+  sAnswerContext,
+) async {
+  nMaxNumber += 1;
   await FirebaseFirestore.instance.collection('answers').add(
     {
       'sQuestionId': sQuestionId,
       'sAnswerSentence': answerContext,
       'sRespondentId': sUserId == sQuestionerId ? sQuestionerId : inputAnswerId,
-      'nRowNumber': maxNumber,
+      'nRowNumber': nMaxNumber,
       'dtCreateDate': FieldValue.serverTimestamp(),
       'sCreateUser': '$sUserNameSei $sUserNameMei',
       'dtUpdateDate': FieldValue.serverTimestamp(),

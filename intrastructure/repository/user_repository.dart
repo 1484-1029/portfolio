@@ -13,8 +13,8 @@ import 'package:intl/intl.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/domain/entry/user_db/user_db.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
 import 'package:portfolioapp/src/presentation/notifiers/register_employee_notifier.dart';
+import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
 import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
 import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
 
@@ -74,11 +74,11 @@ Future<void> getUserInfo(String userId) async {
       sDeviceToken = docs.data()!['sDeviceToken'];
     } else {
       // ドキュメントが存在しない場合の処理
-      print('Document not found for userId: $userId');
+      throw Exception('Error fetching data');
     }
   } catch (e) {
     // エラーハンドリング
-    print('Error fetching user information: $e');
+    throw Exception('Error fetching data: $e');
   }
 }
 
@@ -119,8 +119,7 @@ Future<void> updateToken(userId) async {
       print('トークンは既に最新です。');
     }
   } catch (e) {
-    print('エラーになりました: $e');
-    // エラーが発生した場合の処理をここに追加
+    throw Exception('Error fetching data: $e');
   }
 }
 
@@ -175,7 +174,7 @@ Future<void> setSortSelectUser() async {
       sortUsers[userId] = userName;
     }
   } catch (e) {
-    print('Error fetching data: $e');
+    throw Exception('Error fetching data: $e');
   }
 }
 
@@ -281,7 +280,7 @@ Future<void> registerUser(context) async {
             'sUserNameSei': registNameSeiController.text,
             'sUserNameMei': registNameMeiContriller.text,
             'sEmployeeNumber': registNumberController.text,
-            'sOfficeId': selectedKey,
+            'sOfficeId': sSelectOfficeKey,
             'sAuthorityFlg': bAuthorCheck == true ? '1' : '0',
             'dtCreateDate': FieldValue.serverTimestamp(),
             'sCreateUser':

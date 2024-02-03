@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 // インポートファイル
 import 'package:portfolioapp/src/presentation/notifiers/excel_notifier.dart';
 
-/*---------------------------------
- エクセル出力用ダイアログ
----------------------------------*/
+/*-----------------------------------------------
+ タイトル：エクセル出力用ダイアログ
+ ------------------------------------------------
+ 概要   ：過去の登録された質問をエクセルに抽出する
+ ------------------------------------------------
+ 呼出画面：drawermenu.dart(メニュー画面)
+ 遷移画面：bottom_page.dart(ホーム画面)
+------------------------------------------------*/
 Widget excelDialog(BuildContext context) {
   return AlertDialog(
     alignment: Alignment.center,

@@ -2,12 +2,18 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
 import 'package:portfolioapp/src/presentation/dialogs/employee_regist_dialog.dart';
 
-registerInputCheck(context) {
-  if (registEmailController.text == '') {
+registerInputCheck(
+  context,
+  email,
+  password,
+  officeflg,
+  emploeeNo,
+  nameSei,
+  nameMei,
+) {
+  if (email == '') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,
@@ -17,7 +23,7 @@ registerInputCheck(context) {
         ),
       ),
     );
-  } else if (registPasswordController.text == '0') {
+  } else if (password == '0') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,
@@ -27,7 +33,7 @@ registerInputCheck(context) {
         ),
       ),
     );
-  } else if (selectedKey == '0') {
+  } else if (officeflg == '0') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,
@@ -37,7 +43,7 @@ registerInputCheck(context) {
         ),
       ),
     );
-  } else if (registNameSeiController.text == '') {
+  } else if (emploeeNo == '') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,
@@ -47,7 +53,7 @@ registerInputCheck(context) {
         ),
       ),
     );
-  } else if (registNameSeiController.text == 'unSelected') {
+  } else if (nameSei == 'unSelected') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,
@@ -57,7 +63,7 @@ registerInputCheck(context) {
         ),
       ),
     );
-  } else if (registNameMeiContriller.text == 'unSelected') {
+  } else if (nameMei == 'unSelected') {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.white,

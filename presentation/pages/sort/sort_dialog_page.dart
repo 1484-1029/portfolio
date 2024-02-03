@@ -1,12 +1,33 @@
 // インポートパッケージ
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/src/core/pulldown_map_until.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
 import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
 import 'package:portfolioapp/src/presentation/pages/sort/sort_result_page.dart';
+import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
 
+// 条件絞り用変数
+TextEditingController sortQuestionKeyword = TextEditingController();
+List<Question> sortQuestions = [];
+String sortGenreKey = 'unSelected';
+String sortGenreName = '選択してください';
+String sortQuestionerNameKey = 'select';
+String sortQuestionerName = '選択してください';
+String sortAnswerNameKey = 'select';
+String sortAnswerName = '選択してください';
+
+/*-----------------------------------------------
+ タイトル：検索ダイアログページ
+ ------------------------------------------------
+ 概要   ：検索したい質問の情報を入力する画面。
+         ※dialogのriverpodsでの状態管理が難しいため、
+         StatefulWidgetで対応
+ ------------------------------------------------
+ 呼出画面：drawermenu.dart(メニュー画面)
+ 遷移画面：sort_result_page.dart(検索結果画面)
+------------------------------------------------*/
 class SortDialogPage extends StatefulWidget {
   const SortDialogPage({
     Key? key,

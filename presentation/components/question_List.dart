@@ -1,7 +1,7 @@
 // インポートパッケージ
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolioapp/src/core/pulldown_map_until.dart';
 
 // インポートファイル
 import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
@@ -11,7 +11,6 @@ import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart'
 import 'package:portfolioapp/src/presentation/components/image_format.dart';
 import 'package:portfolioapp/src/presentation/dialogs/question_delete_dialog.dart';
 import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
 import 'package:portfolioapp/src/presentation/pages/detail_question_page.dart';
 
 // 質問ステータス
