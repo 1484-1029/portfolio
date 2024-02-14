@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolioapp/src/presentation/notifiers/detail_question_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/detail_question_notifier.dart';
 
 // テキストフィールド
 Widget answerChatTextField(

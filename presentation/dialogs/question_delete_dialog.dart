@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/answer_repository.dart';
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/answer_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
 
 /*-----------------------------------------------
  タイトル：質問削除ダイアログ

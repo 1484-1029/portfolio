@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/dialogs/employee_regist_dialog.dart';
+import 'package:company_question_channel/src/presentation/dialogs/employee_regist_dialog.dart';
 
 registerInputCheck(
   context,

@@ -1,17 +1,17 @@
 // インポートパッケージ
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolioapp/src/core/pulldown_map_until.dart';
+import 'package:company_question_channel/src/core/pulldown_map_until.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
-import 'package:portfolioapp/src/domain/entry/user_db/user_db.dart';
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
-import 'package:portfolioapp/src/presentation/components/image_format.dart';
-import 'package:portfolioapp/src/presentation/dialogs/question_delete_dialog.dart';
-import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/detail_question_page.dart';
+import 'package:company_question_channel/src/domain/entry/question_db/question_db.dart';
+import 'package:company_question_channel/src/domain/entry/user_db/user_db.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/presentation/components/image_format.dart';
+import 'package:company_question_channel/src/presentation/dialogs/question_delete_dialog.dart';
+import 'package:company_question_channel/src/presentation/notifiers/bottom_bar_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/detail_question_page.dart';
 
 // 質問ステータス
 String questionStatus(sAnswerFlg) {

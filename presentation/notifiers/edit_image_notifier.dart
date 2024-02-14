@@ -7,8 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 // アップロード画像URL格納
 String selectedImageUrl = '';

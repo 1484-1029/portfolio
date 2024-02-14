@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
-import 'package:portfolioapp/src/presentation/components/image_format.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/presentation/components/image_format.dart';
 
 class DetailProfilePage extends StatelessWidget {
   final String employeeNumber;

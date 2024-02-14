@@ -1,12 +1,12 @@
 // インポートパッケージ
 import 'package:flutter/material.dart';
-import 'package:portfolioapp/src/core/pulldown_map_until.dart';
+import 'package:company_question_channel/src/core/pulldown_map_until.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/pages/sort/sort_result_page.dart';
-import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/presentation/pages/sort/sort_result_page.dart';
+import 'package:company_question_channel/src/domain/entry/question_db/question_db.dart';
 
 // 条件絞り用変数
 TextEditingController sortQuestionKeyword = TextEditingController();

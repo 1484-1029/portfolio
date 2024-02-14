@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/components/image_format.dart';
-import 'package:portfolioapp/src/presentation/notifiers/edit_image_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/presentation/components/image_format.dart';
+import 'package:company_question_channel/src/presentation/notifiers/edit_image_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 class EditMyPage extends ConsumerWidget {
   const EditMyPage({super.key});

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/answer_repository.dart';
-import 'package:portfolioapp/src/presentation/components/answer_list.dart';
-import 'package:portfolioapp/src/presentation/components/image_format.dart';
-import 'package:portfolioapp/src/presentation/notifiers/answer_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/detail_question_notifier.dart';
-import 'package:portfolioapp/src/presentation/widgets/detail_question_widget.dart';
+import 'package:company_question_channel/src/intrastructure/repository/answer_repository.dart';
+import 'package:company_question_channel/src/presentation/components/answer_list.dart';
+import 'package:company_question_channel/src/presentation/components/image_format.dart';
+import 'package:company_question_channel/src/presentation/notifiers/answer_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/bottom_bar_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/detail_question_notifier.dart';
+import 'package:company_question_channel/src/presentation/widgets/detail_question_widget.dart';
 
 // アンサー格納変数
 TextEditingController addAnswerText = TextEditingController();

@@ -1,24 +1,24 @@
 // // インポートパッケージ
 // import 'package:flutter/material.dart';
-// import 'package:portfolioapp/src/presentation/pages/employee/all_employee_page.dart';
+// import 'package:company_question_channel/src/presentation/pages/employee/all_employee_page.dart';
 
 // // インポートファイル
-// import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
-// import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-// import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
-// import 'package:portfolioapp/src/presentation/pages/home_page/mypages/edit_my_page.dart';
-// import 'package:portfolioapp/src/presentation/pages/login_page.dart';
-// // import 'package:portfolioapp/screens/all_employee_screen.dart';
-// // import 'package:portfolioapp/screens/all_questions_screen.dart';
-// // import 'package:portfolioapp/screens/bottom_screen.dart';
-// // import 'package:portfolioapp/screens/create_question_screen.dart';
-// // import 'package:portfolioapp/screens/edit_my_page_screen.dart';
-// // import 'package:portfolioapp/screens/login_screen.dart';
-// // import 'package:portfolioapp/screens/my_page_screen.dart';
-// // import 'package:portfolioapp/screens/my_question_screen.dart';
-// // import 'package:portfolioapp/screens/registration_screen.dart';
-// // import 'package:portfolioapp/screens/sort_dialog_screen.dart';
-// // import 'package:portfolioapp/screens/sort_question_screen.dart';
+// import 'package:company_question_channel/src/presentation/pages/employee/register_employee_page.dart';
+// import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+// import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
+// import 'package:company_question_channel/src/presentation/pages/home_page/mypages/edit_my_page.dart';
+// import 'package:company_question_channel/src/presentation/pages/login_page.dart';
+// // import 'package:company_question_channel/screens/all_employee_screen.dart';
+// // import 'package:company_question_channel/screens/all_questions_screen.dart';
+// // import 'package:company_question_channel/screens/bottom_screen.dart';
+// // import 'package:company_question_channel/screens/create_question_screen.dart';
+// // import 'package:company_question_channel/screens/edit_my_page_screen.dart';
+// // import 'package:company_question_channel/screens/login_screen.dart';
+// // import 'package:company_question_channel/screens/my_page_screen.dart';
+// // import 'package:company_question_channel/screens/my_question_screen.dart';
+// // import 'package:company_question_channel/screens/registration_screen.dart';
+// // import 'package:company_question_channel/screens/sort_dialog_screen.dart';
+// // import 'package:company_question_channel/screens/sort_question_screen.dart';
 
 // class AppRouter {
 //   static Route<dynamic> generateRoute(RouteSettings settings) {

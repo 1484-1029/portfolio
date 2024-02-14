@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/components/appbar_action.dart';
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/components/drawermenu.dart';
-import 'package:portfolioapp/src/presentation/components/question_List.dart';
+import 'package:company_question_channel/src/presentation/components/appbar_action.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/presentation/components/drawermenu.dart';
+import 'package:company_question_channel/src/presentation/components/question_List.dart';
 
 class AllQuestionsPage extends ConsumerWidget {
   const AllQuestionsPage({super.key});

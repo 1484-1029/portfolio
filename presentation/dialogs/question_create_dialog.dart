@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/presentation/notifiers/create_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 /*-----------------------------------------------
  タイトル：作成質問確認ダイアログ

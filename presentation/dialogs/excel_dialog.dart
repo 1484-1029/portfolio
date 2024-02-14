@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/notifiers/excel_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/excel_notifier.dart';
 
 /*-----------------------------------------------
  タイトル：エクセル出力用ダイアログ

@@ -1,14 +1,14 @@
 // インポートパッケージ
 import 'package:flutter/material.dart';
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/dialogs/excel_dialog.dart';
-import 'package:portfolioapp/src/presentation/dialogs/logout_dialog.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-import 'package:portfolioapp/src/presentation/pages/employee/all_employee_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
-import 'package:portfolioapp/src/presentation/pages/sort/sort_dialog_page.dart';
+import 'package:company_question_channel/src/presentation/dialogs/excel_dialog.dart';
+import 'package:company_question_channel/src/presentation/dialogs/logout_dialog.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/employee/all_employee_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/presentation/pages/sort/sort_dialog_page.dart';
 
 // メニュー内容
 Drawer drawerMenu(context) {

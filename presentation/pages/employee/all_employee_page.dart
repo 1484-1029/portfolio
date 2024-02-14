@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/user_repository.dart';
-import 'package:portfolioapp/src/presentation/components/image_format.dart';
-import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
-import 'package:portfolioapp/src/presentation/pages/employee/detail_profile_page.dart';
+import 'package:company_question_channel/src/intrastructure/repository/user_repository.dart';
+import 'package:company_question_channel/src/presentation/components/image_format.dart';
+import 'package:company_question_channel/src/presentation/pages/employee/register_employee_page.dart';
+import 'package:company_question_channel/src/presentation/pages/employee/detail_profile_page.dart';
 
 class AllEmployeePage extends ConsumerWidget {
   const AllEmployeePage({super.key});

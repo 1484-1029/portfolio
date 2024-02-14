@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/answer_repository.dart';
+import 'package:company_question_channel/src/intrastructure/repository/answer_repository.dart';
 
 // 変数設定
 String answerContext = '';

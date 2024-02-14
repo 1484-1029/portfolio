@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/components/question_List.dart';
-import 'package:portfolioapp/src/presentation/pages/sort/sort_dialog_page.dart';
+import 'package:company_question_channel/src/presentation/components/question_List.dart';
+import 'package:company_question_channel/src/presentation/pages/sort/sort_dialog_page.dart';
 
 /*-----------------------------------------------
  タイトル：検索結果ページ

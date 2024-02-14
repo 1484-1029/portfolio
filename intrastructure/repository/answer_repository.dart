@@ -6,11 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/domain/entry/answer_db/answer_db.dart';
-import 'package:portfolioapp/src/presentation/notifiers/answer_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
-import 'package:portfolioapp/src/presentation/notifiers/detail_question_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/domain/entry/answer_db/answer_db.dart';
+import 'package:company_question_channel/src/presentation/notifiers/answer_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/bottom_bar_notifier.dart';
+import 'package:company_question_channel/src/presentation/notifiers/detail_question_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 /*---------------------- 
  ・変数設定

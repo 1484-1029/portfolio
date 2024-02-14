@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
 
 /*-----------------------------------------------
  タイトル：appbarコンポーネント

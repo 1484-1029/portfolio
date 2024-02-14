@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/main.dart';
+import 'package:company_question_channel/main.dart';
 
 /*-----------------------------------------------
  タイトル：ログアウト用ダイアログ

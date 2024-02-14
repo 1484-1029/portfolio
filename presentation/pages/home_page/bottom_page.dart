@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/intrastructure/repository/question_repository.dart';
-import 'package:portfolioapp/src/presentation/notifiers/bottom_bar_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/allquestions_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/my_question_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/mypages/my_page.dart';
+import 'package:company_question_channel/src/intrastructure/repository/question_repository.dart';
+import 'package:company_question_channel/src/presentation/notifiers/bottom_bar_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/allquestions_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/my_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/mypages/my_page.dart';
 
 // ログインユーザ情報格納用変数
 String sUserId = '';

@@ -2,10 +2,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 final createQuestionProviders =
     ChangeNotifierProvider.autoDispose((ref) => CreateQuestionProvider());

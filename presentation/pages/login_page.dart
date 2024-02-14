@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/application/usecases/login_use_case.dart';
-import 'package:portfolioapp/src/presentation/components/mailadress_field.dart';
-import 'package:portfolioapp/src/presentation/components/password_field.dart';
+import 'package:company_question_channel/src/application/usecases/login_use_case.dart';
+import 'package:company_question_channel/src/presentation/components/mailadress_field.dart';
+import 'package:company_question_channel/src/presentation/components/password_field.dart';
 
 // テキストフィールド用のcontroller定義
 final emailController = TextEditingController();

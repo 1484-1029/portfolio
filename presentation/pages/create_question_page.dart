@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/components/create_input_check.dart';
-import 'package:portfolioapp/src/presentation/dialogs/question_cancel_dialog.dart';
-import 'package:portfolioapp/src/presentation/notifiers/create_notifier.dart';
-import 'package:portfolioapp/src/core/pulldown_map_until.dart';
+import 'package:company_question_channel/src/presentation/components/create_input_check.dart';
+import 'package:company_question_channel/src/presentation/dialogs/question_cancel_dialog.dart';
+import 'package:company_question_channel/src/presentation/notifiers/create_notifier.dart';
+import 'package:company_question_channel/src/core/pulldown_map_until.dart';
 
 // 質問情報格納変数
 final TextEditingController controllerText = TextEditingController();

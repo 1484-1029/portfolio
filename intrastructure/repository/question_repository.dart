@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/domain/entry/question_db/question_db.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
-import 'package:portfolioapp/src/presentation/pages/sort/sort_dialog_page.dart';
+import 'package:company_question_channel/src/domain/entry/question_db/question_db.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/presentation/pages/sort/sort_dialog_page.dart';
 
 // データベース設定
 final questionsdb = FirebaseFirestore.instance.collection('questions');

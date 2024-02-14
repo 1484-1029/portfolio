@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/notifiers/login_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/login_page.dart';
+import 'package:company_question_channel/src/presentation/notifiers/login_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/login_page.dart';
 
 class PasswordField extends ConsumerWidget {
   const PasswordField({super.key});

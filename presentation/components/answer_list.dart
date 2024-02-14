@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/domain/entry/answer_db/answer_db.dart';
+import 'package:company_question_channel/src/domain/entry/answer_db/answer_db.dart';
 
 // 1質問に対しての回答一覧
 Widget answerListView(

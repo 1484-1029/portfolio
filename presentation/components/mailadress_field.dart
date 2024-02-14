@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/pages/login_page.dart';
+import 'package:company_question_channel/src/presentation/pages/login_page.dart';
 
 class MailadressField extends ConsumerWidget {
   const MailadressField({super.key});

@@ -12,11 +12,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/domain/entry/user_db/user_db.dart';
-import 'package:portfolioapp/src/presentation/notifiers/register_employee_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-import 'package:portfolioapp/src/presentation/pages/employee/register_employee_page.dart';
-import 'package:portfolioapp/src/presentation/pages/home_page/bottom_page.dart';
+import 'package:company_question_channel/src/domain/entry/user_db/user_db.dart';
+import 'package:company_question_channel/src/presentation/notifiers/register_employee_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/presentation/pages/employee/register_employee_page.dart';
+import 'package:company_question_channel/src/presentation/pages/home_page/bottom_page.dart';
 
 /*---------------------- 
  ・変数設定

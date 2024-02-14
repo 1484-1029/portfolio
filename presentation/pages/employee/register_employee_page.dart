@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // インポートファイル
-import 'package:portfolioapp/src/presentation/components/register_input_check.dart';
-import 'package:portfolioapp/src/presentation/notifiers/register_employee_notifier.dart';
-import 'package:portfolioapp/src/presentation/pages/create_question_page.dart';
-import 'package:portfolioapp/src/core/pulldown_map_until.dart';
+import 'package:company_question_channel/src/presentation/components/register_input_check.dart';
+import 'package:company_question_channel/src/presentation/notifiers/register_employee_notifier.dart';
+import 'package:company_question_channel/src/presentation/pages/create_question_page.dart';
+import 'package:company_question_channel/src/core/pulldown_map_until.dart';
 
 // インプット情報格納変数
 final registEmailController = TextEditingController();
