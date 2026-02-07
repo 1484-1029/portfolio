@@ -11,7 +11,7 @@ import 'package:company_question_channel/src/presentation/pages/home_page/bottom
 import 'package:company_question_channel/src/core/error_handling_util.dart';
 
 /*---------------------- 
- ・ログイン機能(適当に修正)
+ ・ログイン機能(適当に追加修正)
 ----------------------*/
 Future<void> login(context) async {
   // メールアドレスとパスワードを取得
